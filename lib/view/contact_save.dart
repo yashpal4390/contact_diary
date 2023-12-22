@@ -6,13 +6,11 @@ import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
-import '../modal/contact_modal.dart';
-import '../modal/util.dart';
 
 class ContactSave extends StatefulWidget {
   const ContactSave({super.key});
-
   @override
+
   State<ContactSave> createState() => _ContactSaveState();
 }
 
@@ -26,7 +24,11 @@ class _ContactSaveState extends State<ContactSave> {
   GlobalKey<FormState> fk = GlobalKey<FormState>();
 
   // bool isEdit = false;
-
+  @override
+  void initState() {
+    Provider.of<ContactProvider>(context,listen:false).repair();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

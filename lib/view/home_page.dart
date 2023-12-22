@@ -1,3 +1,4 @@
+
 // ignore_for_file: prefer_const_constructors
 
 import 'dart:io';
@@ -63,11 +64,14 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 370, top: 25),
+                  Positioned(
+                    right: 15,
+                    top: 20,
                     child: InkWell(
                       onTap: () {
-                        contactprovider.contactList.removeAt(index);
+                        contactprovider.rindex=index;
+                        contactprovider.deleteContact();
+                        print("delete");
                       },
                       child: Icon(Icons.delete),
                     ),

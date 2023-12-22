@@ -6,6 +6,7 @@ import '../modal/contact_modal.dart';
 class ContactProvider extends ChangeNotifier {
   List<ContactModel> contactList = [];
   int cIndex = 0;
+  int rindex=0;
   ImagePicker picker = ImagePicker();
   XFile? xFile;
 
@@ -22,6 +23,10 @@ class ContactProvider extends ChangeNotifier {
         name: nameController.text,
         number: contactController.text,
         xFile: xFile));
+    emailController.clear();
+    nameController.clear();
+    contactController.clear();
+    xFile=null;
     notifyListeners();
   }
 
@@ -58,4 +63,15 @@ class ContactProvider extends ChangeNotifier {
       notifyListeners();
     });
   }
+
+  void deleteContact()
+  {
+    contactList.removeAt(rindex);
+    notifyListeners();
+  }
+  void repair()
+  {
+    isEdit=false;
+  }
+
 }
